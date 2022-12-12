@@ -1,7 +1,14 @@
 # 1) Создать программно файл в текстовом формате, записать в него построчно данные, вводимые пользователем.
 # Об окончании ввода данных свидетельствует пустая строка.
 
-new_file = open("new_file.txt", "w", encoding='utf-8')
-lists = ['первая строка\n', 'вторая строка\n', 'третья строка\n']
-new_file.writelines(lists)
-new_file.close()
+my_list = []
+while True:
+    line = input("  введите ")
+    if line == '':
+        exit()
+    else:
+        newline = line + '\n'
+        my_list.append(newline)
+
+    with open("test_1.txt", "w") as file_obj:
+        file_obj.writelines(my_list)
