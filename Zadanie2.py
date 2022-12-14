@@ -1,17 +1,13 @@
-#2) Создать текстовый файл (не программно), сохранить в нем несколько строк,
-# выполнить подсчет количества строк, количества слов в каждой строке.
+def count_info():
+    try:
+        with open('test_1.txt', 'r', encoding="utf-8") as file:
+            my_list = file.readlines()
+            print(f"Количество строк в файле {len(my_list)}")
+            for i in range(len(my_list)):
+                new_l = my_list[i].split()
+                print(f' В {i + 1}-ой строке {len(new_l)} слов(а)')
+    except FileNotFoundError:
+        return 'Файл не найден.'
+count_info()
 
 
-
-my_file = open('test_1.txt', 'r')
-content = my_file.readlines()
-print(f'Количество строк в файле - {len(content)}')
-my_file = open('test_1.txt', 'r')
-content = my_file.readlines()
-for i in range(len(content)):
-    print(f'Количество символов {i + 1} - ой строки {len(content[i])}')
-my_file = open('test_1.txt', 'r')
-content = my_file.read()
-content = content.split()
-print(f'Общее количество слов - {len(content)}')
-my_file.close()
